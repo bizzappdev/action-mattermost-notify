@@ -20,7 +20,7 @@ func ReadMessage(path string) (*model.IncomingWebhookRequest, error) {
 
 	iwr, _ := model.IncomingWebhookRequestFromJson(bytes.NewReader(bytesMsg))
 	if iwr == nil {
-		return &model.IncomingWebhookRequest{}, errors.Errorf("error parsing the message")
+		return &model.IncomingWebhookRequest{}, errors.Errorf("error parsing the message : %s" % bytesMsg)
 	}
 
 	return iwr, nil
